@@ -32,7 +32,5 @@
     "example.html",
     "Makefile"
   ],
-  "dependencies": {
-    "bourbon": "~4.0.2"
-  }
+  "dependencies": {}
 }

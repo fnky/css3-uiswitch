@@ -3,8 +3,8 @@
 //
 // @author Christian Petersen <chrs@cbp.io>
 
-// Bourbon
-@import '../bourbon/dist/bourbon';
+// Bourbon Mixins
+@import 'mixins';
 
 $uiswitch-thumb-tint: #ffffff !default;
 $uiswitch-on-tint: #4CD964 !default;

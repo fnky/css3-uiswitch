@@ -5,6 +5,8 @@ A pretty sweet and pure CSS3 iOS 7 UISwitch.
 
 ![image](uiswitch-demo.gif)
 
+#### [See it in action!](http://codepen.io/cbp/pen/FLdjI)
+
 ## Really? Another CSS3 switch?
 
 I've been looking for a perfect and pixel-perfect switch button that had the same feeling as the [UISwitch](https://developer.apple.com/library/ios/documentation/uikit/reference/uiswitch_class/Reference/Reference.html) in iOS 7 but never found one, so I built one myself.

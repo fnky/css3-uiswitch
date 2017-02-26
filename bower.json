@@ -1,13 +1,13 @@
 {
   "name": "uiswitch",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "authors": [
     "Christian Petersen <humanoidism@gmail.com>"
   ],
   "description": "A sweet and pure CSS3 iOS 7 UISwitch",
-  "main": "_uiswitch.scss",
+  "main": "uiswitch.scss",
   "keywords": [
-    "css3",
+    "css",
     "scss",
     "sass",
     "ios",
@@ -23,14 +23,10 @@
     "**/.*",
     "node_modules",
     "bower_components",
-    ".sass-cache",
-    ".DS_Store",
     "test",
     "tests",
-    ".gitignore",
     "uiswitch-demo.gif",
-    "example.html",
-    "Makefile"
+    "example.html"
   ],
   "dependencies": {}
 }

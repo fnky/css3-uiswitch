@@ -1,137 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>UISwitch Example</title>
-    <link rel="stylesheet" href="uiswitch.css">
-    <style type="text/css">
-        body {
-            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            background-color: #ffffff;
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>UISwitch Example</title>
+  <link rel="stylesheet" href="css/uiswitch.css">
+  <style type="text/css">
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #ffffff;
+    }
 
-        p {
-            font-size: 18px;
-            font-weight: 300;
-        }
+    p {
+      font-size: 18px;
+      font-weight: 300;
+    }
 
-        pre, code {
-            font-family: Monaco, Menlo, "Courier New", Courier, monospace;
-            font-size: 13px;
-        }
+    pre, code {
+      font-family: Monaco, Menlo, "Courier New", Courier, monospace;
+      font-size: 13px;
+    }
 
-        pre {
-            text-align: left;
-        }
+    pre {
+      text-align: left;
+    }
 
-        pre {
-            background-color: #fbfbfb;
-            border: 1px solid #eee;
-            padding: .6em;
-            display: inline-block;
-            border-radius: 3px;
-        }
+    pre {
+      background-color: #fbfbfb;
+      border: 1px solid #eee;
+      padding: .6em;
+      display: inline-block;
+      border-radius: 3px;
+    }
 
-        .wrapper {
-            width: 90%;
-            margin: 0 auto;
-            text-align: center;
-        }
+    .wrapper {
+      width: 90%;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-        h1 {
-            font-weight: 200;
-            text-align: center;
-            margin: 2em;
-        }
+    h1 {
+      font-weight: 200;
+      text-align: center;
+      margin: 2em;
+    }
 
-        .fields {}
+    .fields {}
 
-        .fields__item {
-            display: inline-block;
-            margin-right: 1.875em;
-            text-align: center;
-        }
+    .fields__item {
+      display: inline-block;
+      margin-right: 1.875em;
+      text-align: center;
+    }
 
-        h6 {
-            font-size: 12px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: .5px;
-            color: #aaa;
-            margin: 1em;
-        }
+    h6 {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: #aaa;
+      margin: 1em;
+    }
 
-        .section {
-            margin: 2em auto;
-        }
+    .section {
+      margin: 2em auto;
+    }
 
-        .custom { background-color: #eadcbc; }
-        .custom::before { background-color: #f7f2e5; }
-        .custom::after { background: #fff3a6; }
-        .custom:checked {
-            background-color: #ffca3f; background-image: -webkit-linear-gradient(-90deg, #ffca3f 0%, #feca40 100%);
-            background-image: linear-gradient(-180deg,#ffca3f 0%, #feca40 100%);
-        }
+    .custom { background-color: #eadcbc; }
+    .custom::before { background-color: #f7f2e5; }
+    .custom::after { background: #fff3a6; }
+    .custom:checked {
+      background-color: #ffca3f; background-image: -webkit-linear-gradient(-90deg, #ffca3f 0%, #feca40 100%);
+      background-image: linear-gradient(-180deg,#ffca3f 0%, #feca40 100%);
+    }
 
-        .my-switch {
-          border-radius: 4px; }
-          .my-switch::before {
-            border-radius: 2px; }
-          .my-switch::after {
-            border-radius: 1px; }
-          .my-switch:checked {
-            background: hotpink; }
-          .my-switch:checked::after {
-            background-color: #333; }
-    </style>
+    .my-switch {
+      border-radius: 4px; }
+      .my-switch::before {
+      border-radius: 2px; }
+      .my-switch::after {
+      border-radius: 1px; }
+      .my-switch:checked {
+      background: hotpink; }
+      .my-switch:checked::after {
+      background-color: #333; }
+  </style>
 </head>
 <body>
 
-    <div class="wrapper">
-        <h1>CSS3 UISwitch Example</h1>
+  <div class="wrapper">
+    <h1>CSS3 UISwitch Example</h1>
 
-        <section id="fields" class="fields section">
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch">
-                <h6>Off (unchecked)</h6>
-            </div>
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch" checked>
-                <h6>On (checked)</h6>
-            </div>
+    <section id="fields" class="fields section">
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch">
+        <h6>Off (unchecked)</h6>
+      </div>
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch" checked>
+        <h6>On (checked)</h6>
+      </div>
 
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch" disabled>
-                <h6>Disabled Off</h6>
-            </div>
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch" disabled>
+        <h6>Disabled Off</h6>
+      </div>
 
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch" checked disabled>
-                <h6>Disabled On</h6>
-            </div>
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch" checked disabled>
+        <h6>Disabled On</h6>
+      </div>
 
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch custom">
-                <h6>Custom</h6>
-            </div>
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch custom">
+        <h6>Custom</h6>
+      </div>
 
-            <div class="fields__item">
-                <input type="checkbox" class="uiswitch my-switch">
-                <h6>Custom</h6>
-            </div>
-        </section>
+      <div class="fields__item">
+        <input type="checkbox" class="uiswitch my-switch">
+        <h6>Custom</h6>
+      </div>
+    </section>
 
-        <section id="usage" class="section">
-            <p>It's a one liner!</p>
-            <pre><code>&lt;input type="checkbox" class="uiswitch"&gt;</code></pre>
-            <p>Or just use SCSS and customize it too!</p>
-            <pre><code>import 'uiswitch';
+    <section id="usage" class="section">
+      <p>It's a one liner!</p>
+      <pre><code>&lt;input type="checkbox" class="uiswitch"&gt;</code></pre>
+      <p>Or just use SCSS and customize it too!</p>
+      <pre><code>import 'uiswitch';
 
 $uiswitch-thumb-tint: #ffffff;
 $uiswitch-on-tint: red;</code></pre>
-        </section>
-    </div>
+    </section>
+  </div>
 
 </body>
 </html>

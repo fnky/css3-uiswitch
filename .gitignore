@@ -1,3 +1,5 @@
 .DS_Store
 bower_components/
-.sass-cache/
+npm-debug.log
+.sass-cache
+node_modules

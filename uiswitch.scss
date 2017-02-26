@@ -1,10 +1,22 @@
-// UISwitch
-// A pretty sweet and pure CSS3 iOS 7 UISwitch.
-//
-// @author Christian Petersen <chrs@cbp.io>
+/*! uiswitch v1.1.0 | MIT License | github.com/fnky/css3-uiswitch */
+@charset "utf-8";
 
-// Bourbon Mixins
-@import 'mixins';
+@mixin size($size) {
+  $height: nth($size, 1);
+  $width: $height;
+
+  @if length($size) > 1 {
+    $height: nth($size, 2);
+  }
+
+  @if $height == auto or (type-of($height) == number and not unitless($height)) {
+    height: $height;
+  }
+
+  @if $width == auto or (type-of($width) == number and not unitless($width)) {
+    width: $width;
+  }
+}
 
 $uiswitch-thumb-tint: #ffffff !default;
 $uiswitch-on-tint: #4CD964 !default;
@@ -14,136 +26,142 @@ $uiswitch-on-tint-start: $uiswitch-on-tint !default;
 $uiswitch-on-tint-end: desaturate($uiswitch-on-tint-start, 1) !default;
 $uiswitch-off-tint: #ffffff !default;
 
+$uiswitch-size: 51px 31px !default;
+$uiswitch-frame-size: 47px 27px !default;
+$uiswitch-thumb-size: 27px !default;
+
 %uiswitch {
-    @include box-sizing(border-box);
-    @include appearance(none);
-    @include size(51px 31px);
-    position: relative;
+  @include size($uiswitch-size);
+  appearance: none;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 16px;
+  cursor: pointer;
+  outline: 0;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: $uiswitch-active-tint;
+
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-user-select: none;
+
+  // Frame
+  &::before {
+    @include size($uiswitch-frame-size);
+    box-sizing: border-box;
+    content: ' ';
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    background-color: $uiswitch-off-tint;
     border-radius: 16px;
-    cursor: pointer;
-    outline: 0;
-    z-index: 0;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background-color: $uiswitch-active-tint;
-    @include transition-duration(600ms);
-    @include transition-timing-function(ease-in-out);
+    z-index: 1;
+    transition-duration: 300ms;
+    transform: scale(1);
+  }
 
-    -webkit-touch-callout: none;
-    -webkit-text-size-adjust: none;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-user-select: none;
+  // Thumb
+  &::after {
+    @include size($uiswitch-thumb-size);
+    box-sizing: border-box;
+    content: ' ';
+    position: absolute;
+    border-radius: 27px;
+    background: $uiswitch-thumb-tint;
+    z-index: 2;
+    top: 2px;
+    left: 2px;
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25),
+                0px 4px 11px 0px rgba(0,0,0,0.08),
+                -1px 3px 3px 0px rgba(0,0,0,0.14);
+    transition: transform 300ms, width 280ms;
+    transform: translate3d(0, 0, 0);
+    transition-timing-function: cubic-bezier(0.42, 0.800, 0.58, 1.2);
+  }
 
-    // Background
-    &::before {
-        @include box-sizing(border-box);
-        @include size(47px 27px);
-        content: ' ';
-        position: absolute;
-        left: 2px;
-        top: 2px;
-        background-color: $uiswitch-off-tint;
-        border-radius: 16px;
-        z-index: 1;
-        @include transition-duration(300ms);
-        @include transform(scale(1));
+  // Background tint for ON state
+  &:checked {
+    background-image: linear-gradient(-180deg, $uiswitch-on-tint-start 0%,
+                                               $uiswitch-on-tint-end 100%);
+  }
+
+  // Thumb for ON state
+  &:checked::after {
+    transform: translate3d(16px, 0, 0);
+    right: 18px;
+    left: inherit;
+  }
+
+  // Thumb for active state
+  &:active::after {
+    width: 35px;
+  }
+
+  &:checked::before,
+  &:active::before {
+    transform: scale(0);
+  }
+
+  // Disabled
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transition: none;
+
+    &:active::before,
+    &:active::after,
+    &:checked:active::before,
+    &:checked::before {
+      width: $uiswitch-thumb-size;
+      transition: none;
     }
 
-    // Thumb
-    &::after {
-        @include box-sizing(border-box);
-        @include size(27px);
-        content: ' ';
-        position: absolute;
-        border-radius: 27px;
-        background: $uiswitch-thumb-tint;
-        z-index: 2;
-        top: 2px;
-        left: 2px;
-        box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.25),
-                    0px 4px 11px 0px rgba(0,0,0,0.08),
-                    -1px 3px 3px 0px rgba(0,0,0,0.14);
-        @include transition(transform 300ms, width 280ms);
-        @include transform(translate3d(0, 0, 0));
-        @include transition-timing-function(cubic-bezier(0.42, 0.800, 0.58, 1.2));
-    }
-
-    // Background tint for ON state
-    &:checked {
-        @include linear-gradient(-180deg, $uiswitch-on-tint-start 0%, $uiswitch-on-tint-end 100%);
-    }
-
-    // Thumb for ON state
-    &:checked::after {
-        @include transform(translate3d(16px, 0, 0));
-        right: 18px;
-        left: inherit;
-    }
-
-    // Thumb for active state
-    &:active::after {
-        width: 35px;
-    }
-
-    &:checked::before,
     &:active::before {
-        @include transform(scale(0));
+      @include size($uiswitch-frame-size);
+      transform: translate3d(6px, 0, 0);
     }
 
-    // Disabled
-    &:disabled {
-        opacity: 0.5;
-        cursor: default;
-        @include transition(none);
-
-        &:active::before,
-        &:active::after,
-        &:checked:active::before,
-        &:checked::before {
-            width: 27px;
-            @include transition(none);
-        }
-
-        &:active::before {
-            @include size(41px 27px);
-            @include transform(translate3d(6px, 0, 0));
-        }
-
-        &:checked:active::before {
-            @include size(27px);
-            @include transform(scale(0));
-        }
+    &:checked:active::before {
+      @include size($uiswitch-thumb-size);
+      transform: scale(0);
     }
+  }
 }
 
 @mixin uiswitch($on-tint: $uiswitch-on-tint,
                 $thumb-tint: $uiswitch-thumb-tint,
                 $off-tint: $uiswitch-off-tint,
-                $active-tint: $uiswitch-active-tint) {
+                $active-tint: $uiswitch-active-tint,
+                $size: $uiswitch-size,
+                $frame-size: $uiswitch-frame-size,
+                $thumb-size: $uiswitch-thumb-size) {
 
-    @extend %uiswitch;
-    background-color: $active-tint;
+  @extend %uiswitch;
+  background-color: $active-tint;
 
-    $on-tint-start: $on-tint;
-    $on-tint-end: desaturate($on-tint-start, 1);
+  $on-tint-start: $on-tint;
+  $on-tint-end: desaturate($on-tint-start, 1);
 
-    &::before {
-        background-color: $off-tint;
-    }
+  &::before {
+    background-color: $off-tint;
+  }
 
-    &::after {
-        background: $thumb-tint;
-    }
+  &::after {
+    background: $thumb-tint;
+  }
 
-    &:checked {
-        @include linear-gradient(-180deg, $on-tint-start 0%,
-                                $on-tint-end 100%);
-    }
+  &:checked {
+    background-image: linear-gradient(-180deg, $on-tint-start 0%,
+                                               $on-tint-end 100%);
+  }
 
 }
 
 // Make .uiswitch class available out of the box
 .uiswitch {
-    @include uiswitch();
+  @include uiswitch();
 }

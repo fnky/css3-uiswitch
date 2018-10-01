@@ -6,23 +6,29 @@ CSS3 UISwitch
 
 A pretty sweet and pure CSS3 iOS 7 [UISwitch](https://developer.apple.com/library/ios/documentation/uikit/reference/uiswitch_class/Reference/Reference.html).
 
-![image](uiswitch-demo.gif)
+![UISwitch Demo](uiswitch-demo.gif)
 
 #### [See it in action!](http://codepen.io/cbp/pen/FLdjI)
 
 ## Grab it
 
-- npm
+#### npm
 
 ```
 npm install uiswitch
 ```
 
-- [Bower](http://bower.io/)
+#### [Bower](http://bower.io/)
 
 ```
 bower install uiswitch
 ```
+
+#### Unpkg
+
+- [SCSS](https://unpkg.com/uiswitch)
+- [CSS](https://unpkg.com/uiswitch/css/uiswitch.css)
+- [Minified CSS](https://unpkg.com/uiswitch/css/uiswitch.css)
 
 ## Use it
 
